@@ -1,5 +1,4 @@
-﻿using BrownNews.Factory;
-using BrownNews.Utilities;
+﻿using BrownNews.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
