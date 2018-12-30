@@ -1,9 +1,7 @@
-﻿using BrownNews.Factory;
-using BrownNews.Models;
+﻿using BrownNews.Models;
 using BrownNews.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Globalization;
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Http;
@@ -25,16 +23,20 @@ namespace BrownNews.Controllers
         {
             var ip = Request.HttpContext?.Connection?.RemoteIpAddress?.ToString();
             var country = "in";
+
             if (ip != null || ip != "127.0.0.1")
             {
                 try { country = GeoIPUtil.GetCountryByIP(IPAddress.Parse(ip)); }
                 catch { }
             }
-            ApplicationSettings.WebApiUrl = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
+
+            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
+            var client = new ApiClient.ApiClient(new Uri(uriStr));
+
             Headlines model = new Headlines();
             try
             {
-                model = await ApiClientFactory.Instance.GetHeadlines();
+                model = await client.GetHeadlines();
             }
             catch (Exception)
             {
@@ -46,11 +48,12 @@ namespace BrownNews.Controllers
         [Route("/{country}")]
         public async Task<IActionResult> IndexByCountry(string country = "us")
         {
-            ApplicationSettings.WebApiUrl = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
+            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
+            var client = new ApiClient.ApiClient(new Uri(uriStr));
             Headlines model = new Headlines();
             try
             {
-                model = await ApiClientFactory.Instance.GetHeadlines();
+                model = await client.GetHeadlines();
             }
             catch (Exception)
             {
