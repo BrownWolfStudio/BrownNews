@@ -19,7 +19,8 @@ namespace BrownNews.Controllers
         {
             GeoIPUtil = ipUtil;
         }
-
+        
+        [Route("")]
         public async Task<IActionResult> Index()
         {
             var ip = Request.HttpContext?.Connection?.RemoteIpAddress?.ToString();
@@ -40,6 +41,22 @@ namespace BrownNews.Controllers
                 return View("Error");
             }
             return View(model);
+        }
+        
+        [Route("/{country}")]
+        public async Task<IActionResult> IndexByCountry(string country = "us")
+        {
+            ApplicationSettings.WebApiUrl = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
+            Headlines model = new Headlines();
+            try
+            {
+                model = await ApiClientFactory.Instance.GetHeadlines();
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+            return View("Index", model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
