@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A Brown Wolf Studio Initiative! A small, simple and clean headline curator." />
+    <meta itemProp="name" content="Brown News" />
+    <meta itemProp="description" content="A Brown Wolf Studio Initiative! A small, simple and clean headline curator." />
+    <meta itemProp="image" content="~/res/BWS.png/" />
+    <meta property="og:url" content="https://news.brownwolfstudio.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Brown News" />
+    <meta property="og:description" content="A Brown Wolf Studio Initiative! A small, simple and clean headline curator." />
+    <meta property="og:image" content="~/res/BWS.png/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Brown News" />
+    <meta name="twitter:description" content="A Brown Wolf Studio Initiative! A small, simple and clean headline curator." />
+
+
+    <title>@ViewData["Title"]</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script type="text/javascript">var infolinks_pid = 3154209; var infolinks_wsid = 0;</script>
+    <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <a class="navbar-brand mx-lg-0 mx-xl-0 mx-md-0 mx-auto" asp-area="" asp-controller="Home" asp-action="Index">Brownies</a>
+            <a class="nav-link text-light d-none d-sm-block" href="https://brownwolfstudio.com/" target="_blank">A Brown Wolf Studio Initiative! (We're in early Beta)</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3 row">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container-fluid text-center">
+            <div><a asp-area="" asp-controller="Home" asp-action="Index">Brownies Beta v1.0</a></div>
+            <div>&copy; 2018 - <a href="https://brownwolfstudio.com/" target="_blank">Brown Wolf Studio</a> | Powered by <a href="https://newsapi.org/" target="_blank">News API</a></div>
+        </div>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha256-E/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ/PR7CA4=">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
