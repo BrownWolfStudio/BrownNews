@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/thebinaryguy
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://brownwolfstudio.com
+  * I am thebinaryguy (https://keybase.io/thebinaryguy) on keybase.
+  * I have a public key with fingerprint 7700 8836 FFDD 22D6 A38E  0864 742D 4DA3 B2EE 904C
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101d8dac2369e56b3451a2b5b97b44e1d011d47fac335e4b31bcd4ac46d668b99640a",
+      "fingerprint": "77008836ffdd22d6a38e0864742d4da3b2ee904c",
+      "host": "keybase.io",
+      "key_id": "742d4da3b2ee904c",
+      "kid": "0101d8dac2369e56b3451a2b5b97b44e1d011d47fac335e4b31bcd4ac46d668b99640a",
+      "uid": "5870d02af39b1537e79815cdd32f1d19",
+      "username": "thebinaryguy"
+    },
+    "merkle_root": {
+      "ctime": 1546320589,
+      "hash_meta": "435fc5ae3a0e4df8502049da2086c560f6088c33f3327b07b816a9c3152472d7",
+      "seqno": 4215127
+    },
+    "revoke": {
+      "sig_ids": [
+        "0aae62a87f7cec815b13bc915bcbdb2b33ac766d8ec36b00d10151d5354fddc10f"
+      ]
+    },
+    "service": {
+      "hostname": "brownwolfstudio.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1546320683,
+  "expire_in": 157680000,
+  "prev": "dea4663366d70b4d81e09e45ee94e98070826c8265368e5a0e6a084b3c1e522b",
+  "seqno": 19,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.80
+Comment: https://keybase.io/crypto
+
+yMLDAnicrZNdaBxVFMc3TUyTNGkDAanYBx1q1RrD/b53olJfKhI0VbFF0pT1fk12
+2OzOZmZ2k20TYitpxaqgtELVfkmUdtEWgggiASmiQiGI31LEhwqpVRCE9iHB6J1Q
+EcFHB4bLDP9zzv/8zrkfdzXnOppeGiLPrj92db7p4oX91dzw1uV79nkqMnWvf59X
+tKuHHTU2SfPF0Hj9HoAAGmGkRpj5ljKFCYUSKap8rgix0AAIDeGB1BhTSxSGShsi
+NWGGMaF8nxEgvV4vCMsjNq7EYTl1aTkHQAjMgsAYhAyTWFggGOEEGWIkVshaHxDt
+AgtRkkU4c0omti+M3D/3kV+19x/6/9l3dTUdFRwYgGSAfQUp5pb7AlJtDEYBNNDP
+hImNy7JknTotWBWWZVwfqda9qV6vZOPiqM3HUZRmgHUaZjJICcMIUOG7JmVSyJds
+Kl00wTTQVFosgSUmEBQgQHwjkQOkKQMBc+ic6wBjxBXgSkAmfY0hRYQjw52XxI6V
+I6+fIEgh4s5BbGtR0WbFk3DEoUu8/t0ekNIyJAUPuLba9aMgVtp3p1ZGIYWx1Jwx
+I6zGTAFgHFMKDcWUuLFpCAJvz1RWLK6FejV5NqsbDFQcjZfHo9EgSasmjPp0VHLG
+KnGURjoadYJCmlaS/gxPWq9kEeNW5W/kyjt8xi2Mi6jZOAmjssPllP8mxwTu9exE
+JYxtPswUlDMB3JPVsTWX0lhJGMPYNcGBIkZAC3xLqFsWYn0BOBCIafdSzISlDjiT
+QLhl0NBShNQ/KKEbUipHXE4HsCzTamy9qQsfDbfkmjpyrTetyW5SrqO9++/7pX5a
+u7L11MYlr9jzaWm2ZfJ4vX6W/7h45c+R0ef2Hr28fPDIZ2M7//iqtuHbJ395szD7
+xHR9+3e7piev3/91a+exkJ/3H1kZ3tI4vdh8fHDjzsG5A29tfnqtP7VtFzhx65VX
+dSH36JHb9zw2IHZU3787kfNDJy/5v+d2P/zuwgeXbnmgczAijx98ZtkunX9FTnZN
+n1jw2qK9leaJmaea7tp+5o7g2unm7pYHD7+zrtDetu212uHrD32+snnTXOmby7ct
+/tYYWBfe+/KL19q+HPri3I7BaKnxw3trPjz6+mwn+f5q+31zA8+fvXlT69u/dvW8
+cRKPnbs40+NvacwceqGxv72bLrQ35vsO/Lz+0MQnbXf+BR8TfAU=
+=Wpuu
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/thebinaryguy
+
+==================================================================
