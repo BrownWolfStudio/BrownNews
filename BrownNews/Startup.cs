@@ -1,5 +1,4 @@
-﻿using BrownNews.Utilities;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +24,6 @@ namespace BrownNews
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             
-            services.AddScoped<IGetCountryFromIP, GetCountryFromIP>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
