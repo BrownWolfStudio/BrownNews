@@ -21,7 +21,7 @@ namespace BrownNews.Controllers
             Headlines model = new Headlines();
             try
             {
-                model = await client.GetHeadlines();
+                model = await client.GetHeadlinesAsync();
             }
             catch (Exception)
             {
@@ -40,7 +40,7 @@ namespace BrownNews.Controllers
             Headlines model = new Headlines();
             try
             {
-                model = await client.GetHeadlines();
+                model = await client.GetHeadlinesAsync();
             }
             catch (Exception)
             {
