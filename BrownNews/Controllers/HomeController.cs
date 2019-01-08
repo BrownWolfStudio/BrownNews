@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Http;
-using System.Linq;
 
 namespace BrownNews.Controllers
 {
@@ -13,7 +12,7 @@ namespace BrownNews.Controllers
         [Route("")]
         public async Task<IActionResult> Index()
         {
-            var country = HttpContext.Request.Headers["CF-IPCountry"].ToString();
+            var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
             country = SupportedCountries.Countries.Contains(country) ? country : "us";
 
             var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
