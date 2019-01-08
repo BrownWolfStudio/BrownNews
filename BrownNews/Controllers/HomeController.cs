@@ -13,7 +13,7 @@ namespace BrownNews.Controllers
         [Route("")]
         public async Task<IActionResult> Index()
         {
-            string country = Request.Headers["CF-IPCountry"].ToString();
+            var country = HttpContext.Request.Headers["CF-IPCountry"].ToString();
             country = SupportedCountries.Countries.Contains(country) ? country : "us";
 
             var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
