@@ -33,6 +33,8 @@ namespace BrownNews.Controllers
         [Route("/{country}")]
         public async Task<IActionResult> IndexByCountry(string country = "us")
         {
+            country = SupportedCountries.Countries.Contains(country) ? country : "us";
+
             var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
             var client = new ApiClient.ApiClient(new Uri(uriStr));
             Headlines model = new Headlines();
