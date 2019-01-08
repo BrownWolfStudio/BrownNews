@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 namespace BrownNews.Controllers
 {
     public class HomeController : Controller
-    {        
+    {
         [Route("")]
         public async Task<IActionResult> Index()
         {

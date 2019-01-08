@@ -47,7 +47,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container-fluid text-center">
-            <div><a asp-area="" asp-controller="Home" asp-action="Index">Brownies Beta v1.0</a></div>
+            <div><a asp-area="" asp-controller="Home" asp-action="Index">Brownies @Environment.GetEnvironmentVariable("APP_VERSION")</a></div>
             <div>&copy; 2018 - <a href="https://brownwolfstudio.com/" target="_blank">Brown Wolf Studio</a> | Powered by <a href="https://newsapi.org/" target="_blank">News API</a></div>
         </div>
     </footer>
