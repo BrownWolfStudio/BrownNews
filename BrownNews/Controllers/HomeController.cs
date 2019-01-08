@@ -11,10 +11,12 @@ namespace BrownNews.Controllers
     public class HomeController : Controller
     {
         public IConfiguration Configuration { get; }
+        public string API_KEY { get; }
 
         public HomeController(IConfiguration configuration)
         {
             Configuration = configuration;
+            API_KEY = Configuration["NewsApiKey"];
         }
 
         [Route("")]
@@ -23,7 +25,7 @@ namespace BrownNews.Controllers
             var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
             country = SupportedCountries.Countries.Contains(country) ? country : "us";
 
-            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
+            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + API_KEY;
             var client = new ApiClient.ApiClient(new Uri(uriStr));
 
             Headlines model = new Headlines();
@@ -44,7 +46,7 @@ namespace BrownNews.Controllers
             var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
             country = SupportedCountries.Countries.Contains(country) ? country : "us";
 
-            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Configuration["NewsApiKey"];
+            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + API_KEY;
             var client = new ApiClient.ApiClient(new Uri(uriStr));
 
             Headlines model = new Headlines();
@@ -64,7 +66,7 @@ namespace BrownNews.Controllers
         {
             country = SupportedCountries.Countries.Contains(country) ? country : "us";
 
-            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + Environment.GetEnvironmentVariable("NewsApiKey");
+            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + API_KEY;
             var client = new ApiClient.ApiClient(new Uri(uriStr));
             Headlines model = new Headlines();
             try
