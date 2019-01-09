@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject IConfiguration Configuration
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -49,7 +51,7 @@
     <!--INFOLINKS_OFF-->
     <footer class="border-top footer text-muted">
         <div class="container-fluid text-center">
-            <div><a asp-controller="Home" asp-action="Index">Brownies @Environment.GetEnvironmentVariable("APP_VERSION")</a></div>
+            <div><a asp-controller="Home" asp-action="Index">Brownies @Configuration["APP_VERSION"]</a></div>
             <div>&copy; 2018 - <a href="https://brownwolfstudio.com/" target="_blank">Brown Wolf Studio</a> | Powered by <a href="https://newsapi.org/" target="_blank">News API</a></div>
         </div>
     </footer>
