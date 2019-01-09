@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    <!--INFOLINKS_OFF-->
     <header>
         <nav class="navbar navbar-dark bg-dark border-bottom box-shadow mb-3">
             <a class="navbar-brand mx-lg-0 mx-xl-0 mx-md-0 mx-auto" asp-controller="Home" asp-action="Index">Brownies</a>
@@ -45,6 +46,7 @@
         </main>
     </div>
 
+    <!--INFOLINKS_OFF-->
     <footer class="border-top footer text-muted">
         <div class="container-fluid text-center">
             <div><a asp-controller="Home" asp-action="Index">Brownies @Environment.GetEnvironmentVariable("APP_VERSION")</a></div>
@@ -70,14 +72,15 @@
                 integrity="sha256-MSYVjWgrr6UL/9eQfQvOyt6/gsxb6dpwI1zqM5DbLCs=">
         </script>
     </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @RenderSection("Scripts", required: false)
 
     <script type="text/javascript">
         var infolinks_pid = 3154209;
         var infolinks_wsid = 0;
     </script>
     <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
