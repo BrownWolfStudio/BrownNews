@@ -43,6 +43,7 @@
     </header>
 
     <div class="container">
+        <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3 row">
             @RenderBody()
         </main>
@@ -52,7 +53,7 @@
     <footer class="border-top footer text-muted">
         <div class="container-fluid text-center">
             <div><a asp-controller="Home" asp-action="Index">Brownies @Configuration["APP_VERSION"]</a></div>
-            <div>&copy; 2018 - <a href="https://brownwolfstudio.com/" target="_blank">Brown Wolf Studio</a> | Powered by <a href="https://newsapi.org/" target="_blank">News API</a></div>
+            <div>&copy; 2018 - <a href="https://brownwolfstudio.com/" target="_blank">Brown Wolf Studio</a> | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> | Powered by <a href="https://newsapi.org/" target="_blank">News API</a></div>
         </div>
     </footer>
 

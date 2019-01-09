@@ -80,6 +80,12 @@ namespace BrownNews.Controllers
             return View("Index", model);
         }
 
+        [Route("/Privacy")]
+        public IActionResult Privacy(string country = "us")
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
