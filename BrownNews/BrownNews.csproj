@@ -18,9 +18,4 @@
     <ProjectReference Include="..\BrownNews.ApiClient\BrownNews.ApiClient.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Utilities\" />
-  </ItemGroup>
-
 </Project>
