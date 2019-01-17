@@ -22,44 +22,46 @@
     <title>@ViewData["Title"]</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+        <link href="~/lib/materialize/css/materialize.min.css" rel="stylesheet" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha256-azvvU9xKluwHFJ0Cpgtf0CYzK7zgtOznnzxV4924X1w=" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </environment>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <!--INFOLINKS_OFF-->
-    <header>
-        <nav class="navbar navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <a class="navbar-brand mx-lg-0 mx-xl-0 mx-md-0 mx-auto" asp-controller="Home" asp-action="Index">Brownies</a>
-            <a class="nav-link text-light d-none d-sm-block" href="https://brownwolfstudio.com/" target="_blank">A Brown Wolf Studio Initiative! (We're in early Beta)</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3 row">
-            @RenderBody()
-        </main>
-    </div>
-
-    <!--INFOLINKS_OFF-->
-    <footer class="border-top footer text-muted">
-        <div class="container-fluid text-center">
-            <div><a asp-controller="Home" asp-action="Index">Brownies @Configuration["APP_VERSION"]</a></div>
-            <div>&copy; 2018 - <a href="https://brownwolfstudio.com/" target="_blank">Brown Wolf Studio</a> | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> | Powered by <a href="https://newsapi.org/" target="_blank">News API</a></div>
+    <nav>
+        <div class="nav-wrapper deep-purple">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-logo ml-10">Brownies</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down mr-10">
+                <li><a href="https://ko-fi.com/thebinaryguy" target="_blank">Buy me a Ko-fi<i class="material-icons right">sentiment_very_satisfied</i></a></li>
+            </ul>
         </div>
+    </nav>
+
+    <main>
+        <div class="row">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="page-footer deep-purple">
+        <div class="footer">
+            <a asp-controller="Home" asp-action="Index" class="white-text ml-10">Brownies @Configuration["APP_VERSION"]</a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="grey-text text-lighten-4 right mr-10">Privacy</a>
+        </div>
+        <br />
+        <div class="footer">
+            <span class="ml-10">&copy; @DateTime.Now.Year <a href="https://brownwolfstudio.com/" target="_blank" class="grey-text text-lighten-4">Brown Wolf Studio</a></span>
+            <a href="https://newsapi.org/" target="_blank" class="grey-text text-lighten-4 right mr-10">Powered by News API</a>
+        </div>
+        <br />
     </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/materialize/js/materialize.min.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
@@ -68,19 +70,8 @@
                 crossorigin="anonymous"
                 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha256-MSYVjWgrr6UL/9eQfQvOyt6/gsxb6dpwI1zqM5DbLCs=">
-        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </environment>
-
-    @*<script type="text/javascript">
-        var infolinks_pid = 3154209;
-        var infolinks_wsid = 0;
-    </script>
-    <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>*@
 
     <script src="~/js/site.js" asp-append-version="true"></script>
 

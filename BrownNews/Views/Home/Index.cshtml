@@ -4,22 +4,29 @@
     ViewData["Title"] = "Brownies";
 }
 
-<div class="jumbotron-fluid col-12 mb-4 mt-2">
-    <h3 class="text-center text-muted">Headlines Fetched: @Model.TotalResults</h3>
+<div class="grey-text">
+    <h4 class="center text-muted"><i class="material-icons">view_headline</i> @Model.TotalResults Headlines Fetched</h4>
 </div>
 
-<div class="container-fluid">
-    @foreach (var article in Model.Articles)
+@if (Model != null)
+{
+    foreach (var article in Model.Articles)
     {
-    <div class="card mb-4 border-dark">
-        <div class="card-body">
-            <h5 class="card-title">@article.Title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">@article.PublishedAt.Humanize()</h6>
-            <!--INFOLINKS_ON-->
-            <p class="card-text">@article.Content</p>
-            <!--INFOLINKS_OFF-->
-            <a class="card-link btn btn-dark" href="@article.Url" target="_blank">Source</a>
+        <div class="col s12 m6 l4">
+            <div class="card large sticky-action hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="@(article.UrlToImage?.ToString() ?? "https://via.placeholder.com/400x200?text=Image%20Not%20Available")">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">@article.Title<i class="material-icons right">more_vert</i></span>
+                    <p>@article.PublishedAt.Humanize()</p>
+                </div>
+                <div class="card-action"><a href="@article.Url" target="_blank" class="deep-purple-text">Source</a></div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">@article.Title<i class="material-icons right">close</i></span>
+                    <p>@article.Content.</p>
+                </div>
+            </div>
         </div>
-    </div>
     }
-</div>
+}

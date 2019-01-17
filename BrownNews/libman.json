@@ -5,12 +5,11 @@
     {
       "library": "jquery@3.3.1",
       "destination": "wwwroot/lib/jquery",
-      "files": ["jquery.min.js"]
+      "files": [ "jquery.min.js" ]
     },
     {
-      "library": "twitter-bootstrap@4.2.1",
-      "destination": "wwwroot/lib/bootstrap",
-      "files": ["css/bootstrap.min.css", "js/bootstrap.bundle.min.js"]
+      "library": "materialize@1.0.0",
+      "destination": "wwwroot/lib/materialize"
     }
   ]
 }
