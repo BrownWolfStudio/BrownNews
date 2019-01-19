@@ -81,7 +81,7 @@ namespace BrownNews.Controllers
         }
 
         [Route("/Privacy")]
-        public IActionResult Privacy(string country = "us")
+        public IActionResult Privacy()
         {
             return View();
         }
