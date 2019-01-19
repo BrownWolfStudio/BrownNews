@@ -1,0 +1,6 @@
+﻿@model IEnumerable<string>
+
+@foreach (var link in Model)
+{
+    <a class="waves-effect waves-light btn-small deep-purple" asp-controller="Home" asp-action="Index" asp-route-category="@link">@link</a>
+}

@@ -33,7 +33,6 @@ body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 25px;
 }
 
 .ml-10 {
@@ -43,3 +42,22 @@ main {
 .mr-10 {
     margin-right: 10px;
 }
+
+.headerTags {
+    margin: 15px 0 7px 0;
+}
+
+    .headerTags div:nth-child(1) {
+        margin-bottom: 5px;
+    }
+
+    .headerTags div:nth-child(2) {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5px;
+    }
+
+        .headerTags div:nth-child(2) a {
+            margin: 2px;
+            flex: auto;
+        }

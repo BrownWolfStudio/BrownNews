@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using BrownNews.Utilities;
 
 namespace BrownNews.Controllers
 {
@@ -19,14 +20,14 @@ namespace BrownNews.Controllers
             API_KEY = Configuration["NewsApiKey"];
         }
 
-        [Route("")]
-        public async Task<IActionResult> Index()
+        [Route("", Name = "HomePage")]
+        [Route("category/{category}")]
+        public async Task<IActionResult> Index(string category = "general")
         {
             var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
-            country = SupportedCountries.Countries.Contains(country) ? country : "us";
+            country = ApiUtils.IsSupported(country) ? country : "us";
 
-            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + API_KEY;
-            var client = new ApiClient.ApiClient(new Uri(uriStr));
+            var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}", $"category={category}");
 
             Headlines model = new Headlines();
             try
@@ -44,10 +45,9 @@ namespace BrownNews.Controllers
         public async Task<IActionResult> IndexTesting()
         {
             var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
-            country = SupportedCountries.Countries.Contains(country) ? country : "us";
+            country = ApiUtils.IsSupported(country) ? country : "us";
 
-            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + API_KEY;
-            var client = new ApiClient.ApiClient(new Uri(uriStr));
+            var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}");
 
             Headlines model = new Headlines();
             try
@@ -64,10 +64,10 @@ namespace BrownNews.Controllers
         [Route("/{country}")]
         public async Task<IActionResult> IndexByCountry(string country = "us")
         {
-            country = SupportedCountries.Countries.Contains(country) ? country : "us";
+            country = ApiUtils.IsSupported(country) ? country : "us";
 
-            var uriStr = "https://newsapi.org/v2/top-headlines/?country=" + country + "&apiKey=" + API_KEY;
-            var client = new ApiClient.ApiClient(new Uri(uriStr));
+            var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}");
+
             Headlines model = new Headlines();
             try
             {
