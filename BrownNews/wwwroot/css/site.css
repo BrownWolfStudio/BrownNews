@@ -61,3 +61,7 @@ main {
             margin: 2px;
             flex: auto;
         }
+
+li.disabled a:hover {
+    cursor: no-drop;
+}
