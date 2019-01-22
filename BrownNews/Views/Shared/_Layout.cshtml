@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </environment>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
@@ -39,6 +40,8 @@
             </ul>
         </div>
     </nav>
+
+    <h1 style="display: none;">Brownies</h1>
 
     <main>
         <div class="row">
@@ -52,14 +55,24 @@
                 <div class="col l6 s12">
                     <h5 class="white-text">About This Project</h5>
                     <p class="grey-text text-lighten-4">This project is a <a href="https://brownwolfstudio.com/" target="_blank" class="orange-text">Brown Wolf Studio</a> initiative! <a asp-controller="Home" asp-action="Index" class="orange-text">Brownies</a>, as we are calling it, aims to be a simple and clean frontend for <a href="https://newsapi.org/" target="_blank" class="orange-text">News API</a>.</p>
+                    <ul class="share-icons">
+                        <li class="grey-text text-lighten-3">Shout us out: </li>
+                        <li><a class="grey-text text-lighten-3" href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fnews.brownwolfstudio.com%2F&text=Brownies:%20https%3A%2F%2Fnews.brownwolfstudio.com%2F&via=brownwolfstudio" target="_blank" title="Tweet"><i class="fab fa-twitter-square"></i></a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnews.brownwolfstudio.com%2F&quote=Brownies" title="Share on Facebook" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://plus.google.com/share?url=https%3A%2F%2Fnews.brownwolfstudio.com%2F" target="_blank" title="Share on Google+"><i class="fab fa-google-plus-square"></i></a></li>
+                        <li><a class="grey-text text-lighten-3" href="http://www.reddit.com/submit?url=https%3A%2F%2Fnews.brownwolfstudio.com%2F&title=Brownies" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-square"></i></a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fnews.brownwolfstudio.com%2F&title=Brownies&summary=A%20Brown%20Wolf%20Studio%20Initiative!%20Simple%20and%20clean%20frontend%20for%20News%20API.&source=https%3A%2F%2Fnews.brownwolfstudio.com%2F" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a class="grey-text text-lighten-3" href="mailto:?subject=Brownies&body=A%20Brown%20Wolf%20Studio%20Initiative!%20Simple%20and%20clean%20frontend%20for%20News%20API.:%20https%3A%2F%2Fnews.brownwolfstudio.com%2F" target="_blank" title="Send email"><i class="fas fa-envelope-square"></i></a></li>
+                    </ul>
                 </div>
                 <div class="col l4 offset-l2 s12 right-align">
-                    <h5 class="white-text">Tech Stack</h5>
+                    <h5 class="white-text">We <i class="fas fa-heart red-text"></i> Open Source</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="https://dotnet.microsoft.com/" target="_blank">.Net Core</a></li>
-                        <li><a class="grey-text text-lighten-3" href="https://materializecss.com/" target="_blank">Materialize CSS</a></li>
-                        <li><a class="grey-text text-lighten-3" href="https://jquery.com/" target="_blank">jQuery</a></li>
                         <li><a class="grey-text text-lighten-3" href="https://heroku.com/" target="_blank">Heroku</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://jquery.com/" target="_blank">jQuery</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://materializecss.com/" target="_blank">Materialize CSS</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
                     </ul>
                 </div>
             </div>

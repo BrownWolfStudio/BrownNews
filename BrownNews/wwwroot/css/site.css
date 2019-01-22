@@ -65,3 +65,16 @@ main {
 li.disabled a:hover {
     cursor: no-drop;
 }
+
+ul.share-icons {
+    list-style: none;
+}
+
+    ul.share-icons li {
+        display: inline;
+    }
+
+        ul.share-icons li a i {
+            display: inline;
+            font-size: 24px;
+        }
