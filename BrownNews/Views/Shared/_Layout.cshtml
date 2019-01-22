@@ -5,18 +5,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A Brown Wolf Studio Initiative! Small, simple and clean frontend for News API." />
+    <meta name="description" content="A Brown Wolf Studio Initiative! Simple and clean frontend for News API." />
     <meta itemProp="name" content="Brownies" />
-    <meta itemProp="description" content="A Brown Wolf Studio Initiative! Small, simple and clean frontend for News API." />
+    <meta itemProp="description" content="A Brown Wolf Studio Initiative! Simple and clean frontend for News API." />
     <meta itemProp="image" content="@($"{Context.Request.Scheme}://{Context.Request.Host}")/res/BWS.png" />
     <meta property="og:url" content="@($"{Context.Request.Scheme}://{Context.Request.Host}")" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Brownies" />
-    <meta property="og:description" content="A Brown Wolf Studio Initiative! Small, simple and clean frontend for News API." />
+    <meta property="og:description" content="A Brown Wolf Studio Initiative! Simple and clean frontend for News API." />
     <meta property="og:image" content="@($"{Context.Request.Scheme}://{Context.Request.Host}")/res/BWS.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Brownies" />
-    <meta name="twitter:description" content="A Brown Wolf Studio Initiative! Small, simple and clean frontend for News API." />
+    <meta name="twitter:description" content="A Brown Wolf Studio Initiative! Simple and clean frontend for News API." />
 
 
     <title>@ViewData["Title"]</title>
@@ -46,16 +46,30 @@
         </div>
     </main>
 
-    <footer class="page-footer deep-purple">
-        <div class="footer">
-            <span class="ml-10">&copy; @DateTime.Now.Year <a href="https://brownwolfstudio.com/" target="_blank" class="grey-text text-lighten-4">Brown Wolf Studio</a></span>
-            <a href="https://newsapi.org/" target="_blank" class="grey-text text-lighten-4 right mr-10">Powered by News API</a>
-            <span class="grey-text text-lighten-4 right mr-10">|</span>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="grey-text text-lighten-4 right mr-10">Privacy</a>
-            <span class="grey-text text-lighten-4 right mr-10">|</span>
-            <a asp-controller="Home" asp-action="Index" class="grey-text text-lighten-4 mr-10 right">Brownies @Configuration["APP_VERSION"]</a>
+    <footer class="page-footer deep-purple footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About This Project</h5>
+                    <p class="grey-text text-lighten-4">This project is a <a href="https://brownwolfstudio.com/" target="_blank" class="orange-text">Brown Wolf Studio</a> initiative! <a asp-controller="Home" asp-action="Index" class="orange-text">Brownies</a> as we are calling it, aims to be a simple and clean frontend for <a href="https://newsapi.org/" target="_blank" class="orange-text">News API</a>.</p>
+                </div>
+                <div class="col l4 offset-l2 s12 right-align">
+                    <h5 class="white-text">Tech Stack</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://dotnet.microsoft.com/" target="_blank">.Net Core</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://materializecss.com/" target="_blank">Materialize CSS</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://jquery.com/" target="_blank">jQuery</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://heroku.com/" target="_blank">Heroku</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <br />
+        <div class="footer-copyright">
+            <div class="container">
+                &copy; @DateTime.Now.Year <a href="https://brownwolfstudio.com/" target="_blank" class="grey-text text-lighten-4">Brown Wolf Studio</a>
+                <a asp-controller="Home" asp-action="Index" class="grey-text text-lighten-4 right">Brownies @Configuration["APP_VERSION"]</a>
+            </div>
+        </div>
     </footer>
 
     <environment include="Development">
