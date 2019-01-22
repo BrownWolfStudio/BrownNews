@@ -1,0 +1,33 @@
+﻿@inject IConfiguration Configuration
+
+<footer class="page-footer deep-purple footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">About This Project</h5>
+                <p class="grey-text text-lighten-4">This project is a <a href="https://brownwolfstudio.com/" target="_blank" class="orange-text">Brown Wolf Studio</a> initiative! <a asp-controller="Home" asp-action="Index" class="orange-text">Brownies</a>, as we are calling it, aims to be a simple and clean frontend for <a href="https://newsapi.org/" target="_blank" class="orange-text">News API</a>.</p>
+                <ul class="share-icons">
+                    <li class="grey-text text-lighten-3">Shout us out: </li>
+                    <li><a class="grey-text text-lighten-3" href="https://twitter.com/intent/tweet?source=https://news.brownwolfstudio.com/&text=Brownies:%20https://news.brownwolfstudio.com/&via=brownwolfstudio" target="_blank" title="Tweet"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/sharer/sharer.php?u=https://news.brownwolfstudio.com/&quote=Brownies" title="Share on Facebook" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://plus.google.com/share?url=https://news.brownwolfstudio.com/" target="_blank" title="Share on Google+"><i class="fab fa-google-plus-square"></i></a></li>
+                    <li><a class="grey-text text-lighten-3" href="http://www.reddit.com/submit?url=https%3A%2F%2Fnews.brownwolfstudio.com%2F&title=Brownies" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-square"></i></a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/sharing/share-offsite/?url=https://news.brownwolfstudio.com/" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a class="grey-text text-lighten-3" href="mailto:?subject=Brownies&body=A%20Brown%20Wolf%20Studio%20Initiative!%20Simple%20and%20clean%20frontend%20for%20News%20API:%20https%3A%2F%2Fnews.brownwolfstudio.com%2F" target="_blank" title="Send email"><i class="fas fa-envelope-square"></i></a></li>
+                </ul>
+            </div>
+            <div class="col l4 offset-l2 s12 right-align hide-on-med-and-down">
+                <partial name="CreditsPartial" />
+            </div>
+            <div class="col s12 show-on-medium-and-down hide-on-large-only hide-on-extra-large-only">
+                <partial name="CreditsPartial" />
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            &copy; @DateTime.Now.Year <a href="https://brownwolfstudio.com/" target="_blank" class="grey-text text-lighten-4">Brown Wolf Studio</a>
+            <a asp-controller="Home" asp-action="Index" class="grey-text text-lighten-4 right">Brownies @Configuration["APP_VERSION"]</a>
+        </div>
+    </div>
+</footer>
