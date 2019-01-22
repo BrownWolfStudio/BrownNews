@@ -41,26 +41,6 @@ namespace BrownNews.Controllers
             return View(model);
         }
 
-        [Route("/testing")]
-        public async Task<IActionResult> IndexTesting()
-        {
-            var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
-            country = ApiUtils.IsSupported(country) ? country : "us";
-
-            var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}");
-
-            Headlines model = new Headlines();
-            try
-            {
-                model = await client.GetHeadlinesAsync();
-            }
-            catch (Exception)
-            {
-                return View("Error");
-            }
-            return View("Index", model);
-        }
-
         [Route("/{country}")]
         public async Task<IActionResult> IndexByCountry(string country = "us")
         {
