@@ -20,6 +20,18 @@ namespace BrownNews.Utilities
             return imgUri;
         }
 
+        public static int CalculatePagesForPagination(int totalResults, int pageSize)
+        {
+            if (totalResults < pageSize)
+            {
+                return 1;
+            }
+
+            int pages = totalResults / pageSize;
+            if (totalResults % pageSize > 1) pages++;
+            return pages;
+        }
+
         public static ApiClient.ApiClient SetupUrlAndClient(string API_KEY, params string[] urlParams)
         {
             var uriStr = "https://newsapi.org/v2/top-headlines/?apiKey=" + API_KEY;

@@ -6,6 +6,7 @@ using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using BrownNews.Utilities;
+using BrownNews.ViewModels;
 
 namespace BrownNews.Controllers
 {
@@ -22,17 +23,25 @@ namespace BrownNews.Controllers
 
         [Route("", Name = "HomePage")]
         [Route("category/{category}")]
-        public async Task<IActionResult> Index(string category = "general")
+        public async Task<IActionResult> Index(string category = "general", int pageSize = 12, int page = 1)
         {
             var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
             country = ApiUtils.IsSupported(country) ? country : "us";
 
-            var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}", $"category={category}");
+            var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}", $"category={category}", $"pageSize={pageSize}", $"page={page}");
 
-            Headlines model = new Headlines();
+            var model = new HomeViewModel
+            {
+                ActionName = nameof(Index),
+                RenderOptionals = true,
+                Category = category,
+                Country = country,
+                Page = page,
+                PageSize = pageSize
+            };
             try
             {
-                model = await client.GetHeadlinesAsync();
+                model.Headlines = await client.GetHeadlinesAsync();
             }
             catch (Exception)
             {
@@ -42,16 +51,24 @@ namespace BrownNews.Controllers
         }
 
         [Route("/{country}")]
-        public async Task<IActionResult> IndexByCountry(string country = "us")
+        public async Task<IActionResult> IndexByCountry(string country = "us", string category = "general", int pageSize = 12, int page = 1)
         {
             country = ApiUtils.IsSupported(country) ? country : "us";
 
             var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}");
 
-            Headlines model = new Headlines();
+            var model = new HomeViewModel
+            {
+                ActionName = nameof(IndexByCountry),
+                RenderOptionals = false,
+                Category = category,
+                Country = country,
+                Page = page,
+                PageSize = pageSize
+            };
             try
             {
-                model = await client.GetHeadlinesAsync();
+                model.Headlines = await client.GetHeadlinesAsync();
             }
             catch (Exception)
             {

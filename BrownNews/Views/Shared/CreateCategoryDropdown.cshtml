@@ -1,0 +1,12 @@
+﻿@model IEnumerable<string>
+
+<!-- Dropdown Trigger -->
+<a class="dropdown-trigger btn deep-purple" href="" data-target="catDropdown">Category</a>
+
+<!-- Dropdown Structure -->
+<ul id="catDropdown" class="dropdown-content">
+    @foreach (var link in Model)
+    {
+        <li><a asp-controller="Home" asp-action="Index" asp-route-category="@link" class="deep-purple-text">@link.ToUpper()</a></li>
+    }
+</ul>

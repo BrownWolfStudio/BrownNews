@@ -48,13 +48,12 @@
 
     <footer class="page-footer deep-purple">
         <div class="footer">
-            <a asp-controller="Home" asp-action="Index" class="white-text ml-10">Brownies @Configuration["APP_VERSION"]</a>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="grey-text text-lighten-4 right mr-10">Privacy</a>
-        </div>
-        <br />
-        <div class="footer">
             <span class="ml-10">&copy; @DateTime.Now.Year <a href="https://brownwolfstudio.com/" target="_blank" class="grey-text text-lighten-4">Brown Wolf Studio</a></span>
             <a href="https://newsapi.org/" target="_blank" class="grey-text text-lighten-4 right mr-10">Powered by News API</a>
+            <span class="grey-text text-lighten-4 right mr-10">|</span>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="grey-text text-lighten-4 right mr-10">Privacy</a>
+            <span class="grey-text text-lighten-4 right mr-10">|</span>
+            <a asp-controller="Home" asp-action="Index" class="grey-text text-lighten-4 mr-10 right">Brownies @Configuration["APP_VERSION"]</a>
         </div>
         <br />
     </footer>

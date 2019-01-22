@@ -1,20 +1,22 @@
-﻿@model Headlines
+﻿@model HomeViewModel
 
 @{
     ViewData["Title"] = "Brownies";
 }
 
 <div class="headerTags col s12">
-    <div>Filter By Categories:</div>
+    <div>Filter By Category:</div>
     <div>
-        <partial name="SmallBtnLinksPartial" model="@ApiUtils.TopHeadlinesCategories" />
+        <partial name="SmallBtnLinksPartial" model="new TopHeadlinesCategoryViewModel { TopHeadlinesCategories = @ApiUtils.TopHeadlinesCategories, CurrentCategory = Model.Category }" />
     </div>
 </div>
 
 @if (Model != null)
 {
-    foreach (var article in Model.Articles)
+    foreach (var article in Model.Headlines.Articles)
     {
         <partial name="ArticleCardPartial" model="article" />
     }
 }
+
+<partial name="Paginator" model="Model" />
