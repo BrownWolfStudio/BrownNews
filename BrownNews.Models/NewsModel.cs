@@ -1,9 +1,9 @@
-﻿namespace BrownNews.Models
-{
-    using System;
-    using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
-    public partial class Headlines
+namespace BrownNews.Models
+{
+    public partial class News
     {
         [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
         public string Status { get; set; }

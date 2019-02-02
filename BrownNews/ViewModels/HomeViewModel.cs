@@ -9,9 +9,10 @@ namespace BrownNews.ViewModels
 {
     public class HomeViewModel
     {
-        public Headlines Headlines { get; set; }
+        public News Headlines { get; set; }
         public string ActionName { get; set; }
         public bool RenderOptionals { get; set; }
+        public string Query { get; set; }
         public string Category { get; set; }
         public string Country { get; set; }
         public int Page { get; set; }

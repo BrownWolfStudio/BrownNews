@@ -9,12 +9,14 @@
                 bool isPrevDisabled = Model.Page <= 1;
                 bool isNextDisabled = Model.Page >= pages;
             }
+            <li class="@(isPrevDisabled ? "disabled" : "waves-effect")"><a asp-route-category="@Model.Category" asp-route-page="1"><i class="material-icons">first_page</i></a></li>
             <li class="@(isPrevDisabled ? "disabled" : "waves-effect")"><a asp-route-category="@Model.Category" asp-route-page="@(Model.Page-1)"><i class="material-icons">chevron_left</i></a></li>
             @for (int i = 1; i <= pages; i++)
             {
                 <li class="waves-effect @(Model.Page == i ? "deep-purple active" : "")"><a asp-route-category="@Model.Category" asp-route-page="@i">@i.ToString()</a></li>
             }
             <li class="@(isNextDisabled ? "disabled" : "waves-effect")"><a asp-route-category="@Model.Category" asp-route-page="@(Model.Page+1)"><i class="material-icons">chevron_right</i></a></li>
+            <li class="@(isNextDisabled ? "disabled" : "waves-effect")"><a asp-route-category="@Model.Category" asp-route-page="@pages"><i class="material-icons">last_page</i></a></li>
         </ul>
     </div>
 }

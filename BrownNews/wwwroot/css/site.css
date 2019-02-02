@@ -78,3 +78,14 @@ ul.share-icons {
             display: inline;
             font-size: 24px;
         }
+
+
+.searchContainer {
+    margin-top: 25px;
+    display: flex;
+}
+
+.searchBtn {
+    width: 100px;
+    min-width: 50px;
+}

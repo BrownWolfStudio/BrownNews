@@ -43,6 +43,11 @@
 
     <main>
         <div class="row">
+            <form class="input-field col s12 searchContainer" asp-controller="Home" asp-action="Search" method="get">
+                <input type="text" name="q" value="@Model.Query">
+                <label for="q">Search</label>
+                <button class="btn searchBtn deep-purple" type="submit"><i class="material-icons">search</i></button>
+            </form>
             @RenderBody()
         </div>
     </main>

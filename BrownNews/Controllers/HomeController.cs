@@ -14,6 +14,7 @@ namespace BrownNews.Controllers
     {
         public IConfiguration Configuration { get; }
         public string API_KEY { get; }
+        public int pageSize { get; set; } = 12;
 
         public HomeController(IConfiguration configuration)
         {
@@ -23,12 +24,12 @@ namespace BrownNews.Controllers
 
         [Route("", Name = "HomePage")]
         [Route("category/{category}")]
-        public async Task<IActionResult> Index(string category = "general", int pageSize = 12, int page = 1)
+        public async Task<IActionResult> Index(string category = "general", int page = 1)
         {
             var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
             country = ApiUtils.IsSupported(country) ? country : "us";
 
-            var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}", $"category={category}", $"pageSize={pageSize}", $"page={page}");
+            var client = HelperMethods.SetupUrlAndClient(API_KEY, HelperMethods.NewsType.TopHeadlines, $"country={country}", $"category={category}", $"pageSize={pageSize}", $"page={page}");
 
             var model = new HomeViewModel
             {
@@ -41,7 +42,30 @@ namespace BrownNews.Controllers
             };
             try
             {
-                model.Headlines = await client.GetHeadlinesAsync();
+                model.Headlines = await client.GetNewsAsync();
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
+            return View(model);
+        }
+        
+        public async Task<IActionResult> Search(string q = "technology", int page = 1)
+        {
+            var client = HelperMethods.SetupUrlAndClient(API_KEY, HelperMethods.NewsType.Everything, $"q={q}", $"pageSize={pageSize}", $"page={page}");
+
+            var model = new HomeViewModel
+            {
+                ActionName = nameof(Index),
+                RenderOptionals = true,
+                Query = q,
+                Page = page,
+                PageSize = pageSize
+            };
+            try
+            {
+                model.Headlines = await client.GetNewsAsync();
             }
             catch (Exception)
             {
@@ -51,11 +75,11 @@ namespace BrownNews.Controllers
         }
 
         [Route("/{country}")]
-        public async Task<IActionResult> IndexByCountry(string country = "us", string category = "general", int pageSize = 12, int page = 1)
+        public async Task<IActionResult> IndexByCountry(string country = "us", string category = "general", int page = 1)
         {
             country = ApiUtils.IsSupported(country) ? country : "us";
 
-            var client = HelperMethods.SetupUrlAndClient(API_KEY, $"country={country}");
+            var client = HelperMethods.SetupUrlAndClient(API_KEY, HelperMethods.NewsType.TopHeadlines, $"country={country}");
 
             var model = new HomeViewModel
             {
@@ -68,7 +92,7 @@ namespace BrownNews.Controllers
             };
             try
             {
-                model.Headlines = await client.GetHeadlinesAsync();
+                model.Headlines = await client.GetNewsAsync();
             }
             catch (Exception)
             {

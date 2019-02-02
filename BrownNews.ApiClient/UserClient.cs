@@ -5,7 +5,7 @@ namespace BrownNews.ApiClient
 {
     public partial class ApiClient
     {
-        public async Task<Headlines> GetHeadlinesAsync()
+        public async Task<News> GetNewsAsync()
         {
             return await GetAsync(BaseEndpoint);
         }
