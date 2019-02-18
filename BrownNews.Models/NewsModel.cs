@@ -5,40 +5,40 @@ namespace BrownNews.Models
 {
     public partial class News
     {
-        [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("status")]
         public string Status { get; set; }
 
-        [JsonProperty("totalResults", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("totalResults")]
         public long? TotalResults { get; set; }
 
-        [JsonProperty("articles", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("articles")]
         public Article[] Articles { get; set; }
     }
 
     public partial class Article
     {
-        [JsonProperty("source", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("source")]
         public Source Source { get; set; }
 
         [JsonProperty("author")]
         public string Author { get; set; }
 
-        [JsonProperty("title", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("title")]
         public string Title { get; set; }
 
-        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("description")]
         public string Description { get; set; }
 
-        [JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("url")]
         public Uri Url { get; set; }
 
-        [JsonProperty("urlToImage", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("urlToImage")]
         public Uri UrlToImage { get; set; }
 
-        [JsonProperty("publishedAt", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("publishedAt")]
         public DateTimeOffset? PublishedAt { get; set; }
 
-        [JsonProperty("content", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("content")]
         public string Content { get; set; }
     }
 
@@ -47,7 +47,7 @@ namespace BrownNews.Models
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("name")]
         public string Name { get; set; }
     }
 }

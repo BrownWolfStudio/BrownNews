@@ -22,7 +22,7 @@ namespace BrownNews.ApiClient
             var response = await _httpClient.GetAsync(requestUrl, HttpCompletionOption.ResponseHeadersRead);
             response.EnsureSuccessStatusCode();
             var data = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<News>(data);
+            return JsonConvert.DeserializeObject<News>(data, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
         }
     }
 }
