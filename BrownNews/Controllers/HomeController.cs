@@ -6,7 +6,7 @@ using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using BrownNews.Utilities;
-using BrownNews.ViewModels;
+using BrownNews.Models.ViewModels;
 
 namespace BrownNews.Controllers
 {

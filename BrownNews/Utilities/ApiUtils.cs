@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BrownNews.Models
+namespace BrownNews.Utilities
 {
     public static class ApiUtils
     {

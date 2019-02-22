@@ -1,6 +1,4 @@
-using System;
-
-namespace BrownNews.Models
+namespace BrownNews.Models.ViewModels
 {
     public class ErrorViewModel
     {

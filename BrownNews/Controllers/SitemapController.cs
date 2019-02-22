@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BrownNews.Utilities;
+using Microsoft.AspNetCore.Mvc;
 using SimpleMvcSitemap;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BrownNews.Controllers
 {
@@ -15,9 +12,15 @@ namespace BrownNews.Controllers
             List<SitemapNode> nodes = new List<SitemapNode>
             {
                 new SitemapNode(Url.Action("Index","Home")),
+                new SitemapNode(Url.Action("Search","Home")),
                 new SitemapNode(Url.Action("Privacy","Home")),
                 new SitemapNode("https://brownwolfstudio.com/")
             };
+
+            foreach (var category in ApiUtils.TopHeadlinesCategories)
+            {
+                nodes.Add(new SitemapNode(Url.Content($"/category/{category}")));
+            }
 
             return new SitemapProvider().CreateSitemap(new SitemapModel(nodes));
         }

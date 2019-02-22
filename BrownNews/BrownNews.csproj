@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BrownNews.ApiClient\BrownNews.ApiClient.csproj" />
+    <ProjectReference Include="..\BrownNews.Models\BrownNews.Models.csproj" />
   </ItemGroup>
 
 </Project>
