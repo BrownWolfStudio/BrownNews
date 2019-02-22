@@ -13,10 +13,5 @@ namespace BrownNews.Utilities
         {
             "general", "business", "entertainment", "health", "science", "sports", "technology"
         };
-
-        public static bool IsSupported(string country)
-        {
-            return Countries.Contains(country);
-        }
     }
 }

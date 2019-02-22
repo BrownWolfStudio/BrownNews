@@ -27,7 +27,7 @@ namespace BrownNews.Controllers
         public async Task<IActionResult> Index(string category = "general", int page = 1)
         {
             var country = HttpContext.Request.Headers["CF-IPCountry"].ToString().ToLower();
-            country = ApiUtils.IsSupported(country) ? country : "us";
+            country = ApiUtils.Countries.Contains(country) ? country : "us";
 
             var client = HelperMethods.SetupUrlAndClient(API_KEY, HelperMethods.NewsType.TopHeadlines, $"country={country}", $"category={category}", $"pageSize={pageSize}", $"page={page}");
 
@@ -77,7 +77,7 @@ namespace BrownNews.Controllers
         [Route("/{country}")]
         public async Task<IActionResult> IndexByCountry(string country = "us", string category = "general", int page = 1)
         {
-            country = ApiUtils.IsSupported(country) ? country : "us";
+            country = ApiUtils.Countries.Contains(country) ? country : "us";
 
             var client = HelperMethods.SetupUrlAndClient(API_KEY, HelperMethods.NewsType.TopHeadlines, $"country={country}");
 
