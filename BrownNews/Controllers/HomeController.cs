@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using BrownNews.Utilities;
 using BrownNews.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BrownNews.Controllers
 {
@@ -98,6 +99,18 @@ namespace BrownNews.Controllers
                 return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
             return View("Index", model);
+        }
+
+        [Route("/AuthTest")]
+        [Authorize]
+        public IActionResult AuthTest()
+        {
+            var claims = "";
+            foreach (var claim in User.Claims)
+            {
+                claims += "<" + claim.Type + " : " + claim.Value + ">";
+            }
+            return Content(claims);
         }
 
         [Route("/Privacy")]
