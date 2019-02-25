@@ -1,5 +1,4 @@
-﻿using BrownNews.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System;
@@ -46,7 +45,7 @@ namespace BrownNews.Controllers
             }
             catch (Exception)
             {
-                return View("Error");
+                return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
             return View(model);
         }
@@ -69,7 +68,7 @@ namespace BrownNews.Controllers
             }
             catch (Exception)
             {
-                return View("Error");
+                return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
             return View(model);
         }
@@ -96,7 +95,7 @@ namespace BrownNews.Controllers
             }
             catch (Exception)
             {
-                return View("Error");
+                return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
             return View("Index", model);
         }
