@@ -111,8 +111,7 @@ namespace BrownNews.Controllers
             }
             return Content(claims);
         }
-
-        [Route("Privacy")]
+        
         public IActionResult Privacy()
         {
             return View();
