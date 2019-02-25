@@ -100,8 +100,7 @@ namespace BrownNews.Controllers
             }
             return View("Index", model);
         }
-
-        [Route("/AuthTest")]
+        
         [Authorize]
         public IActionResult AuthTest()
         {
@@ -113,14 +112,7 @@ namespace BrownNews.Controllers
             return Content(claims);
         }
 
-        [Route("/ConfigTest")]
-        [Authorize]
-        public IActionResult ConfigTest()
-        {
-            return Content(Configuration["Config:Test"]);
-        }
-
-        [Route("/Privacy")]
+        [Route("Privacy")]
         public IActionResult Privacy()
         {
             return View();
