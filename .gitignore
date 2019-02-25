@@ -360,3 +360,6 @@ ASALocalRun/
 **/mailsettings.Development.json
 **/mailsettings.Staging.json
 **/mailsettings.Production.json
+
+# ignore minified files
+**/*.min.*
