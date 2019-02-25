@@ -113,6 +113,13 @@ namespace BrownNews.Controllers
             return Content(claims);
         }
 
+        [Route("/ConfigTest")]
+        [Authorize]
+        public IActionResult ConfigTest()
+        {
+            return Content(Configuration["Config:Test"]);
+        }
+
         [Route("/Privacy")]
         public IActionResult Privacy()
         {
