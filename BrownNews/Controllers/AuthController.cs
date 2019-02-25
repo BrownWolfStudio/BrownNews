@@ -9,7 +9,7 @@ namespace BrownNews.Controllers
     public class AuthController : Controller
     {
         [Route("SignIn")]
-        public IActionResult SignIn(string returnUrl
+        public IActionResult SignIn(string returnUrl)
         {
             return Challenge(new AuthenticationProperties { RedirectUri = returnUrl ?? "/" });
         }
