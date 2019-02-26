@@ -120,7 +120,14 @@ namespace BrownNews.Controllers
             var connString = builder.ToString();
             connString += "SSL Mode=Require;Trust Server Certificate=true";
             var conn = new NpgsqlConnection(connString);
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch (NpgsqlException ex)
+            {
+                return Json(ex);
+            }
             var version = conn.PostgreSqlVersion;
             conn.Close();
             return Json(new { ConnString = connString, ServerVersion = version.ToString() });
