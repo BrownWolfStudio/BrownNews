@@ -118,7 +118,7 @@ namespace BrownNews.Controllers
             };
 
             var connString = builder.ToString();
-            connString += "SSL Mode=Require;Trust Server Certificate=true";
+            connString += ";SSL Mode=Require;Trust Server Certificate=true";
             var conn = new NpgsqlConnection(connString);
             try
             {
