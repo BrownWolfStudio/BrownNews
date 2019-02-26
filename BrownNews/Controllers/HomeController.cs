@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using BrownNews.Utilities;
 using BrownNews.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Npgsql;
 
 namespace BrownNews.Controllers
 {
@@ -100,17 +101,41 @@ namespace BrownNews.Controllers
             }
             return View("Index", model);
         }
-        
-        [Authorize]
-        public IActionResult AuthTest()
+
+        public IActionResult TestDbConnection()
         {
-            var claims = "";
-            foreach (var claim in User.Claims)
+            var databaseUrl = Configuration["DATABASE_URL"];
+            var databaseUri = new Uri(databaseUrl);
+            var userInfo = databaseUri.UserInfo.Split(':');
+
+            var builder = new NpgsqlConnectionStringBuilder
             {
-                claims += "<" + claim.Type + " : " + claim.Value + ">";
-            }
-            return Content(claims);
+                Host = databaseUri.Host,
+                Port = databaseUri.Port,
+                Username = userInfo[0],
+                Password = userInfo[1],
+                Database = databaseUri.LocalPath.TrimStart('/')
+            };
+
+            var connString = builder.ToString();
+            connString += "SSL Mode=Require;Trust Server Certificate=true";
+            var conn = new NpgsqlConnection(connString);
+            conn.Open();
+            var version = conn.PostgreSqlVersion;
+            conn.Close();
+            return Json(new { ConnString = connString, ServerVersion = version.ToString() });
         }
+        
+        //[Authorize]
+        //public IActionResult AuthTest()
+        //{
+        //    var claims = "";
+        //    foreach (var claim in User.Claims)
+        //    {
+        //        claims += "<" + claim.Type + " : " + claim.Value + ">";
+        //    }
+        //    return Content(claims);
+        //}
         
         public IActionResult Privacy()
         {
