@@ -1,4 +1,6 @@
-﻿namespace BrownNews.Models.ViewModels
+﻿using BrownNews.Models;
+
+namespace BrownNews.ViewModels
 {
     public class HomeViewModel
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BrownNews.Models.ViewModels
+namespace BrownNews.ViewModels
 {
     public class TopHeadlinesCategoryViewModel
     {

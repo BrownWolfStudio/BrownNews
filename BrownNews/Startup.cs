@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using BrownNews.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Twitter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
@@ -28,18 +31,13 @@ namespace BrownNews
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultChallengeScheme = TwitterDefaults.AuthenticationScheme;
-            //    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            //    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            //})
-            //.AddTwitter(options =>
-            //{
-            //    options.ConsumerKey = Configuration["Twitter:ConsumerKey"];
-            //    options.ConsumerSecret = Configuration["Twitter:ConsumerSecret"];
-            //})
-            //.AddCookie();
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseNpgsql(GetPostgresConnString());
+            });
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -78,7 +76,7 @@ namespace BrownNews
                 Database = databaseUri.LocalPath.TrimStart('/')
             };
 
-            return builder.ToString();
+            return builder.ToString() + ";SSL Mode=Require;Trust Server Certificate=true";
         }
     }
 }

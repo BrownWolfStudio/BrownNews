@@ -1,4 +1,4 @@
-namespace BrownNews.Models.ViewModels
+namespace BrownNews.ViewModels
 {
     public class ErrorViewModel
     {

@@ -28,10 +28,4 @@
     <PackageReference Include="SimpleMvcSitemap" Version="3.1.0" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <ProjectReference Include="..\BrownNews.ApiClient\BrownNews.ApiClient.csproj" />
-    <ProjectReference Include="..\BrownNews.Models\BrownNews.Models.csproj" />
-  </ItemGroup>
-
 </Project>

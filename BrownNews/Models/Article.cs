@@ -1,22 +1,15 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
 namespace BrownNews.Models
 {
-    public partial class News
-    {
-        [JsonProperty("status")]
-        public string Status { get; set; }
-
-        [JsonProperty("totalResults")]
-        public long? TotalResults { get; set; }
-
-        [JsonProperty("articles")]
-        public Article[] Articles { get; set; }
-    }
-
     public partial class Article
     {
+        [Key]
+        [Required]
+        public string Id { get; set; }
+
         [JsonProperty("source")]
         public Source Source { get; set; }
 
@@ -28,7 +21,7 @@ namespace BrownNews.Models
 
         [JsonProperty("description")]
         public string Description { get; set; }
-
+        
         [JsonProperty("url")]
         public Uri Url { get; set; }
 
@@ -40,14 +33,5 @@ namespace BrownNews.Models
 
         [JsonProperty("content")]
         public string Content { get; set; }
-    }
-
-    public partial class Source
-    {
-        [JsonProperty("id")]
-        public string Id { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
     }
 }
