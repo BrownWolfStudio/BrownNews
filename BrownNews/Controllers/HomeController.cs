@@ -5,7 +5,6 @@ using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using BrownNews.Utilities;
-using Npgsql;
 using BrownNews.ViewModels;
 
 namespace BrownNews.Controllers
@@ -73,7 +72,7 @@ namespace BrownNews.Controllers
             }
             return View(model);
         }
-
+        
         [Route("/{country}")]
         public async Task<IActionResult> IndexByCountry(string country = "us", string category = "general", int page = 1)
         {

@@ -43,6 +43,14 @@ main {
     margin-right: 10px;
 }
 
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
 .headerTags {
     margin: 15px 0 7px 0;
 }
@@ -88,4 +96,9 @@ ul.share-icons {
 .searchBtn {
     width: 100px;
     min-width: 50px;
+}
+
+nav div ul li .navBtn {
+    margin-right: 10px;
+    margin-left: 0;
 }

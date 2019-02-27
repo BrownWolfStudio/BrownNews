@@ -1,0 +1,55 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    .input-field {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .input-field:first-child {
+        margin-top: 25px;
+    }
+
+    fieldset {
+        margin: 10px;
+    }
+
+        fieldset legend {
+            font-size: 2em;
+        }
+</style>
+
+<fieldset>
+    <legend class="grey-text text-darken-2">Login</legend>
+    <form method="post" asp-area="" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Query["returnUrl"]" class="col s12">
+        <div asp-validation-summary="ModelOnly" class="red-text"></div>
+
+        <div class="input-field">
+            <input asp-for="UserName">
+            <label asp-for="UserName"></label>
+            <span asp-validation-for="UserName" class="helper-text"></span>
+        </div>
+
+        <div class="input-field">
+            <input asp-for="Password">
+            <label asp-for="Password"></label>
+            <span asp-validation-for="Password" class="helper-text"></span>
+        </div>
+
+        <div class="hide-on-small-and-down">
+            <div class="mb-10"><a href="#">Forgot Password?</a></div>
+            <button type="submit" class="btn green">Login</button>
+            <a class="btn white black-text" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+        </div>
+
+        <div class="hide-on-med-and-up right">
+            <div class="right-align mb-10"><a href="#">Forgot Password?</a></div>
+            <button type="submit" class="btn green">Login</button>
+            <a class="btn white black-text" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+        </div>
+    </form>
+</fieldset>

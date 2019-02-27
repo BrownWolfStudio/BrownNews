@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using BrownNews.Data;
 using Newtonsoft.Json;
 
 namespace BrownNews.Models

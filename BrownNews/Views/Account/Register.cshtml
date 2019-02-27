@@ -1,0 +1,112 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<style>
+    .input-field {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+        .input-field:first-child {
+            margin-top: 25px;
+        }
+
+    fieldset {
+        margin: 10px;
+    }
+
+        fieldset legend {
+            font-size: 2em;
+        }
+</style>
+
+<fieldset>
+    <legend class="grey-text text-darken-2">Register</legend>
+    <form method="post" asp-area="" asp-controller="Account" asp-action="Register" class="col s12">
+        <div asp-validation-summary="ModelOnly" class="red-text"></div>
+
+        <div class="input-field">
+            <input asp-for="UserName" id="username">
+            <label asp-for="UserName"></label>
+            <span asp-validation-for="UserName" class="helper-text"></span>
+        </div>
+
+        <div class="input-field">
+            <input asp-for="Email">
+            <label asp-for="Email"></label>
+            <span asp-validation-for="Email" class="helper-text"></span>
+        </div>
+
+        <div class="input-field">
+            <input asp-for="Password">
+            <label asp-for="Password"></label>
+            <span asp-validation-for="Password" class="helper-text"></span>
+        </div>
+
+        <div class="input-field">
+            <input asp-for="ConfirmPassword">
+            <label asp-for="ConfirmPassword"></label>
+            <span asp-validation-for="ConfirmPassword" class="helper-text"></span>
+        </div>
+
+        <div class="hide-on-small-and-down">
+            <button type="submit" class="btn green">Register</button>
+            <a class="btn white black-text" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        </div>
+
+        <div class="hide-on-med-and-up right">
+            <button type="submit" class="btn green">Register</button>
+            <a class="btn white black-text" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        </div>
+    </form>
+</fieldset>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var username = $('#username');
+            var validUsername = false;
+
+            $("form").submit(function (e) {
+                if (validUsername == false) {
+                    e.preventDefault();
+                    M.toast({ html: `${username.val()} is not available!`, displayLength: 5000, classes: 'red-text' });
+                }
+            });
+
+            username.focus(function () {
+                username.removeClass('green-text');
+                username.removeClass('red-text');
+            });
+
+            username.blur(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: `/Account/IsUserNameTaken?username=${username.val()}`,
+                    dataType: 'json',
+                    async: true,
+                    success: function (response) {
+                        if (response == false) {
+                            M.toast({ html: `${username.val()} is available!`, displayLength: 5000, classes: 'green-text' });
+                            username.removeClass('red-text');
+                            username.addClass('green-text');
+                            validUsername = true;
+                        }
+                        else {
+                            M.toast({ html: `${username.val()} is not available!`, displayLength: 5000, classes: 'red-text' });
+                            username.removeClass('green-text');
+                            username.addClass('red-text');
+                            validUsername = false;
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+}

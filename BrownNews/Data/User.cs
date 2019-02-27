@@ -8,5 +8,7 @@ namespace BrownNews.Data
     {
         [PersonalData]
         public IQueryable<Article> SavedArticles { get; set; }
+        
+        public string GravatarEmailHash { get; set; }
     }
 }

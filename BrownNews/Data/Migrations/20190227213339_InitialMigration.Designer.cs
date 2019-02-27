@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BrownNews.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190226192340_InitialMigration")]
+    [Migration("20190227213339_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,8 @@ namespace BrownNews.Data.Migrations
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("GravatarEmailHash");
 
                     b.Property<bool>("LockoutEnabled");
 

@@ -1,0 +1,25 @@
+﻿<nav>
+    <div class="nav-wrapper deep-purple">
+        <a asp-area="" asp-route="HomePage" class="brand-logo ml-10 left">Brownies</a>
+
+        <ul class="right">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-target="profileDropdown">@User.Identity.Name<i class="material-icons right">arrow_drop_down</i></a>
+                    <ul id="profileDropdown" class="dropdown-content">
+                        <li><a asp-area="" asp-controller="User" asp-action="Articles">Saved Articles</a></li>
+                        <li class="divider"></li>
+                        <li><a asp-area="" asp-controller="User" asp-action="EditProfile">Edit Profile</a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="SignOut">Sign Out</a></li>
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li><a class="green white-text waves-effect waves-light btn navBtn" asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+                <li><a class="white deep-purple-text waves-effect waves-light btn navBtn" asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+            }
+        </ul>
+    </div>
+</nav>

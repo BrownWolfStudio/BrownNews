@@ -4,6 +4,8 @@
     ViewData["Title"] = "Brownies";
 }
 
+<partial name="SearchWidgetPartial" />
+
 <div class="headerTags col s12">
     @Model.Headlines.TotalResults Search Results For: <a class="waves-effect waves-light btn-small green" asp-route-q="@Model.Query">@Model.Query</a>
 </div>
