@@ -1,4 +1,4 @@
-﻿<nav>
+<nav>
     <div class="nav-wrapper deep-purple">
         <a asp-area="" asp-route="HomePage" class="brand-logo ml-10 left">Brownies</a>
 
@@ -7,7 +7,7 @@
             {
                 <li>
                     <a class="dropdown-trigger" href="#!" data-target="profileDropdown">@User.Identity.Name<i class="material-icons right">arrow_drop_down</i></a>
-                    <ul id="profileDropdown" class="dropdown-content">
+                    <ul id="profileDropdown" class="dropdown-content deep-purple-text">
                         <li><a asp-area="" asp-controller="User" asp-action="Articles">Saved Articles</a></li>
                         <li class="divider"></li>
                         <li><a asp-area="" asp-controller="User" asp-action="EditProfile">Edit Profile</a></li>
