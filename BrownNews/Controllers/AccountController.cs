@@ -108,7 +108,10 @@ namespace BrownNews.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Something went wrong! Try again later.");
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Code.Humanize());
+                }
                 return View(model);
             }
         }
