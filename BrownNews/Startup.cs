@@ -1,5 +1,6 @@
 ﻿using BrownNews.Data;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -28,6 +29,8 @@ namespace BrownNews
                 options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddDataProtection().SetApplicationName(Configuration["AppName"]).SetDefaultKeyLifetime(TimeSpan.FromDays(90));
 
             services.AddDbContext<AppDbContext>(options =>
             {
