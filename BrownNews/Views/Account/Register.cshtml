@@ -70,19 +70,7 @@
             var username = $('#username');
             var validUsername = false;
 
-            $("form").submit(function (e) {
-                if (validUsername == false) {
-                    e.preventDefault();
-                    M.toast({ html: `${username.val()} is not available!`, displayLength: 5000, classes: 'red-text' });
-                }
-            });
-
-            username.focus(function () {
-                username.removeClass('green-text');
-                username.removeClass('red-text');
-            });
-
-            username.blur(function () {
+            function checkUserNameWithServer() {
                 $.ajax({
                     type: 'POST',
                     url: `/Account/IsUserNameTaken?username=${username.val()}`,
@@ -106,6 +94,22 @@
                         console.log(error);
                     }
                 });
+            }
+
+            $("form").submit(function (e) {
+                checkUserNameWithServer();
+                if (validUsername == false) {
+                    e.preventDefault();
+                }
+            });
+
+            username.focus(function () {
+                username.removeClass('green-text');
+                username.removeClass('red-text');
+            });
+
+            username.blur(function () {
+                checkUserNameWithServer();
             });
         });
     </script>

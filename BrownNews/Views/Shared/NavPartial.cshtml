@@ -7,11 +7,11 @@
             {
                 <li>
                     <a class="dropdown-trigger" href="#!" data-target="profileDropdown">@User.Identity.Name<i class="material-icons right">arrow_drop_down</i></a>
-                    <ul id="profileDropdown" class="dropdown-content deep-purple-text">
-                        <li><a asp-area="" asp-controller="User" asp-action="Articles">Saved Articles</a></li>
+                    <ul id="profileDropdown" class="dropdown-content">
+                        <li><a class="deep-purple-text" asp-area="" asp-controller="User" asp-action="Articles">Saved Articles</a></li>
                         <li class="divider"></li>
-                        <li><a asp-area="" asp-controller="User" asp-action="EditProfile">Edit Profile</a></li>
-                        <li><a asp-area="" asp-controller="Account" asp-action="SignOut">Sign Out</a></li>
+                        <li><a class="deep-purple-text" asp-area="" asp-controller="User" asp-action="EditProfile">Edit Profile</a></li>
+                        <li><a class="deep-purple-text" asp-area="" asp-controller="Account" asp-action="SignOut">Sign Out</a></li>
                     </ul>
                 </li>
             }
