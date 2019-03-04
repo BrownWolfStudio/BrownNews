@@ -1,4 +1,5 @@
 ﻿using BrownNews.Data;
+using BrownNews.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using System;
+using System.Net.Http;
 
 namespace BrownNews
 {
@@ -29,6 +31,11 @@ namespace BrownNews
                 options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            HttpClient httpClient = new HttpClient();
+            services.AddSingleton(httpClient);
+
+            services.AddScoped<IDownloadNewsPaperService, DownloadNewsPaperService>();
 
             services.AddDataProtection().SetApplicationName(Configuration["AppName"]).SetDefaultKeyLifetime(TimeSpan.FromDays(90));
 

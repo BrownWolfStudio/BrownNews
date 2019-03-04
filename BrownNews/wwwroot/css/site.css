@@ -51,6 +51,14 @@ main {
     margin-bottom: 10px;
 }
 
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
 .headerTags {
     margin: 15px 0 7px 0;
 }

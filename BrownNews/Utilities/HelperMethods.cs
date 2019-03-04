@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BrownNews.Models;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -82,6 +86,42 @@ namespace BrownNews.Utilities
                 // Return the hexadecimal string.
                 return sBuilder.ToString();
             }
+        }
+
+        public static byte[] ZipIt(this List<SourceFile> sFiles)
+        {
+            // get the source files
+            List<SourceFile> sourceFiles = sFiles;
+
+            // the output bytes of the zip
+            byte[] fileBytes = null;
+
+            // create a working memory stream
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                // create a zip
+                using (ZipArchive zip = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
+                {
+                    // interate through the source files
+                    foreach (SourceFile f in sourceFiles)
+                    {
+                        // add the item name to the zip
+                        ZipArchiveEntry zipItem = zip.CreateEntry(f.Name + "." + f.Extension);
+                        // add the item bytes to the zip entry by opening the original file and copying the bytes 
+                        using (MemoryStream originalFileMemoryStream = new MemoryStream(f.FileBytes))
+                        {
+                            using (Stream entryStream = zipItem.Open())
+                            {
+                                originalFileMemoryStream.CopyTo(entryStream);
+                            }
+                        }
+                    }
+                }
+                fileBytes = memoryStream.ToArray();
+            }
+
+            // return zip
+            return fileBytes;
         }
 
         public enum NewsType

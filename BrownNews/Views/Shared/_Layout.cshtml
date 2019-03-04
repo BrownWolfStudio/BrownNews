@@ -16,7 +16,7 @@
     <meta name="twitter:title" content="Brownies" />
     <meta name="twitter:description" content="A Brown Wolf Studio Initiative! Simple and clean frontend for News API." />
 
-    <title>@ViewData["Title"]</title>
+    <title>@(ViewData["Title"] ?? "Brownies")</title>
 
     <environment include="Development">
         <link href="~/lib/materialize/css/materialize.min.css" rel="stylesheet" />
