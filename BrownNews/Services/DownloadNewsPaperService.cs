@@ -11,23 +11,23 @@ namespace BrownNews.Services
         public HttpClient Client { get; set; }
         private int Page { get; set; }
 
-        private string GsRkUrlFormat { get; set; } = "http://enewspapr.com/News/GUJARAT/RAJ/{0:yyyy}/{0:MM}/{0:dd}/{0:yyyyMMdd}_{4}.PDF";
+        private string GsRkUrlFormat { get; set; } = "http://enewspapr.com/News/GUJARAT/RAJ/{0:yyyy}/{1:MM}/{2:dd}/{3:yyyyMMdd}_{4}.PDF";
         public string GsRkCurrentUrl
         {
             get
             {
                 var date = DateTime.Now;
-                return string.Format(GsRkUrlFormat, date, Page);
+                return string.Format(GsRkUrlFormat, date, date, date, date, Page);
             }
         }
 
-        private string DbRkUrlFormat { get; set; } = "http://digitalimages.bhaskar.com/gujarat/epaperimages/{0:ddMMyyyy}/{1:d}rajkot%20city-pg{2}-0ll.jpg";
+        private string DbRkUrlFormat { get; set; } = "http://digitalimages.bhaskar.com/gujarat/epaperimages/{0:ddMMyyyy}/3rajkot%20city-pg{1}-0ll.jpg";
         public string DbRkCurrentUrl
         {
             get
             {
                 var date = DateTime.Now;
-                return string.Format(DbRkUrlFormat, date, int.Parse(date.ToString("d")) - 1, Page);
+                return string.Format(DbRkUrlFormat, date, Page);
             }
         }
 
