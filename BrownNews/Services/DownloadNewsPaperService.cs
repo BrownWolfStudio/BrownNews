@@ -21,13 +21,14 @@ namespace BrownNews.Services
             }
         }
 
-        private string DbRkUrlFormat { get; set; } = "http://digitalimages.bhaskar.com/gujarat/epaperimages/{0:ddMMyyyy}/3rajkot%20city-pg{1}-0ll.jpg";
+        private string DbRkUrlFormat { get; set; } = "http://digitalimages.bhaskar.com/gujarat/epaperimages/{0:ddMMyyyy}/{1}rajkot%20city-pg{2}-0ll.jpg";
         public string DbRkCurrentUrl
         {
             get
             {
                 var date = DateTime.Now;
-                return string.Format(DbRkUrlFormat, date, Page);
+                var index = DateTime.Now.Day - 1;
+                return string.Format(DbRkUrlFormat, date, day, Page);
             }
         }
 
